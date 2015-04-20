@@ -1,2 +1,5 @@
 yubi-shared/src/main/resources/yubico.properties
 **/target
+.classpath
+.project
+.settings
