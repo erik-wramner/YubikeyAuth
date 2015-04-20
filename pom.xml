@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.codemint.example</groupId>
+  <artifactId>yubi-examples</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Yubikey authentication examples</name>
+  <description>Several examples of two-factor authentication with Yubikey.</description>
+  <url>https://github.com/erik-wramner/YubikeyAuth</url>
+  <inceptionYear>2015</inceptionYear>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Erik Wramner</name>
+      <email>erik.wramner@codemint.com</email>
+      <organization>CodeMint</organization>
+      <organizationUrl>http://www.codemint.com</organizationUrl>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git@github.com:erik-wramner/YubikeyAuth.git</connection>
+    <developerConnection>scm:git:git@github.com:erik-wramner/YubikeyAuth.git</developerConnection>
+    <url>git@github.com:erik-wramner/YubikeyAuth.git</url>
+  </scm>
+  <packaging>pom</packaging>
+  <modules>
+    <module>yubi-shared</module>
+    <module>yubi-app-example</module>
+    <module>yubi-jee-example</module>
+    <module>yubi-jaas-jetty-example</module>
+    <module>yubi-jaas-portable-example</module>
+    <module>yubi-jaspic-example</module>
+    <module>yubi-shiro-example</module>
+  </modules>
+</project>

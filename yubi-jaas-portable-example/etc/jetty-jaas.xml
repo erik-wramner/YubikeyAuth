@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_0.dtd">
+<Configure id="Server" class="org.eclipse.jetty.server.Server">
+  <Call name="addBean">
+    <Arg>
+      <New class="org.eclipse.jetty.jaas.JAASLoginService">
+        <!-- Must match realm in web.xml -->
+        <Set name="Name">ExampleRealm</Set>
+        <!-- Must match name in jaas.conf -->
+        <Set name="LoginModuleName">YubiLoginModule</Set>
+        <Set name="roleClassNames">
+          <Array type="java.lang.String">
+            <Item>com.codemint.example.yubi.jaas.SimplePrincipal</Item>
+          </Array>
+        </Set>
+      </New>
+    </Arg>
+  </Call>
+  <Call class="java.lang.System" name="setProperty">
+    <Arg>java.security.auth.login.config</Arg>
+    <Arg>
+      <!-- Set path to JAAS configuration -->
+      <Property name="jaas.login.conf" default="etc/jaas.conf"/>
+    </Arg>
+  </Call>
+</Configure>
