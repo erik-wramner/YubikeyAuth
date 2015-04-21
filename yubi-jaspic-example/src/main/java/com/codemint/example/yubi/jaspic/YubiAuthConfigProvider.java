@@ -71,7 +71,7 @@ public class YubiAuthConfigProvider implements AuthConfigProvider {
     try {
       return (CallbackHandler) Thread.currentThread().getContextClassLoader().loadClass(callBackClassName)
           .newInstance();
-    } catch (Exception e) {
+    } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
       throw new AuthException(e.getMessage());
     }
   }
