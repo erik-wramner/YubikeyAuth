@@ -38,20 +38,6 @@ public class YubikeyAndPasswordAuthorizingRealm extends AuthorizingRealm {
   private final YubicoClient _yubicoClient = createYubicoClient();
 
   /**
-   * Get authorization information for a collection of principals. When there is
-   * only a single realm (ours) we can safely use the primary principal.
-   * 
-   * @param principalCollection
-   *          The principal collection.
-   * @return authorization info with granted roles.
-   */
-  @Override
-  protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-    UserAccount account = _accountMap.get(principalCollection.getPrimaryPrincipal());
-    return new SimpleAuthorizationInfo(account != null ? account.getRoles() : new java.util.TreeSet<String>());
-  }
-
-  /**
    * Authenticate a user with password and one-time password.
    * 
    * @param token
@@ -98,6 +84,20 @@ public class YubikeyAndPasswordAuthorizingRealm extends AuthorizingRealm {
 
     _logger.info("Returning null (login failed)");
     return null;
+  }
+
+  /**
+   * Get authorization information for a collection of principals. When there is
+   * only a single realm (ours) we can safely use the primary principal.
+   * 
+   * @param principalCollection
+   *          The principal collection.
+   * @return authorization info with granted roles.
+   */
+  @Override
+  protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+    UserAccount account = _accountMap.get(principalCollection.getPrimaryPrincipal());
+    return new SimpleAuthorizationInfo(account != null ? account.getRoles() : new java.util.TreeSet<String>());
   }
 
   /**

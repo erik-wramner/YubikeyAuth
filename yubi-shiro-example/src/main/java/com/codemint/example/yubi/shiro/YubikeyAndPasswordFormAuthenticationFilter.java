@@ -19,7 +19,7 @@ public class YubikeyAndPasswordFormAuthenticationFilter extends FormAuthenticati
   @Override
   protected AuthenticationToken createToken(ServletRequest request, ServletResponse response) {
     String userId = getUsername(request);
-    String password = this.getPassword(request);
+    String password = getPassword(request);
     String otp = request.getParameter("otp");
     return new UserPasswordAndOtpToken(userId, password, otp);
   }
